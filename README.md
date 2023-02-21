@@ -1,5 +1,5 @@
 # calculadora-App
-calculadora siples feita com  react native 
+calculadora simples feita com  react native 
 
 
 
