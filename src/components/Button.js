@@ -3,9 +3,9 @@ import {
     StyleSheet,
     Text,
     Dimensions,
-    TouchbleHighLight,
-    TouchableHighlight
+    TouchableOpacity
 } from 'react-native'
+
 const styles = StyleSheet.create({
     button: {
         fontSize: 40,
@@ -20,7 +20,6 @@ const styles = StyleSheet.create({
     operationButton: {
         color: '#fff',
         backgroundColor: '#fa8231',
-
     },
     buttonDouble: {
         width: (Dimensions.get('window').width / 4) * 2,
@@ -33,11 +32,12 @@ const styles = StyleSheet.create({
 export default props => {
     const stylesButton = [styles.button]
     if (props.double) stylesButton.push(styles.buttonDouble)
-    if (props.Triple) stylesButton.push(styles.buttonTriple)
+    if (props.triple) stylesButton.push(styles.buttonTriple)
+    if (props.operation) stylesButton.push(styles.operationButton)
+
     return (
-        <TouchableHighlight onPress={props.onClick}>
-            <Text style={styles.button}>{props.label}</Text>
-        </TouchableHighlight>
+        <TouchableOpacity onPress={() => props.onClick(props.label)}>
+            <Text style={stylesButton}>{props.label}</Text>
+        </TouchableOpacity>
     )
 }
-
